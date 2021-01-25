@@ -3,13 +3,17 @@ clc;
     close all; 
     
     %GENERATE QUADRATURE CARRIER SIGNAL 
-    Tb=1;t=0:(Tb/100):Tb;fc=1; 
+    Tb=1;
+    t=0:(Tb/100):Tb;
+    fc=1; 
     c1=sqrt(2/Tb)*cos(2*pi*fc*t); 
     c2=sqrt(2/Tb)*sin(2*pi*fc*t); 
     
     %generate message signal 
-    N=8;m=rand(1,N); 
-    t1=0;t2=Tb; 
+    N=8;
+    m=rand(1,N); 
+    t1=0;
+    t2=Tb; 
     
     for i=1:2:(N-1) 
     t=[t1:(Tb/100):t2] 
@@ -37,9 +41,15 @@ clc;
     qpsk=odd_sig+even_sig; 
     %Plot the QPSK modulated signal 
     
-    subplot(3,2,4);plot(t,qpsk(i,:)); 
-    title('QPSK signal');xlabel('t---->');ylabel('s(t)');grid on; hold on; 
-    t1=t1+(Tb+.01); t2=t2+(Tb+.01); 
+    subplot(3,2,4);
+    plot(t,qpsk(i,:)); 
+    title('QPSK signal');
+    xlabel('t---->');
+    ylabel('s(t)');
+    grid on; hold on; 
+    
+    t1=t1+(Tb+.01);
+    t2=t2+(Tb+.01); 
     end 
     hold off 
     %Plot the binary data bits and carrier signal 
@@ -51,7 +61,8 @@ clc;
     title('carrier signal-2');xlabel('t---->');ylabel('c2(t)');grid on; 
     
     % QPSK Demodulation 
-    t1=0;t2=Tb 
+    t1=0;
+    t2=Tb 
     for i=1:N-1 
     t=[t1:(Tb/100):t2] 
     %correlator 

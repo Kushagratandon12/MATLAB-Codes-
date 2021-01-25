@@ -10,6 +10,7 @@ L=2^n;
 
 x=0:2*pi/n1:4*pi;              
 s=8*sin(x);
+
 subplot(3,1,1);
 plot(s);
 title('Analog Signal');
@@ -31,7 +32,7 @@ l2=length(q);
  
  for i=1:l1
     if(ind(i)~=0)                                            % To make index as binary decimal so started from 0 to N
-ind(i)=ind(i)-1;
+ind(i)=ind(i)+1;
     end 
 i=i+1;
  end   
@@ -54,7 +55,7 @@ xlabel('Time--->');
 for i=1:l1
     for j=1:n
         coded(k)=code(i,j);                  % convert code matrix to a coded row vector
-        j=j++ 1;
+        j=j+ 1;
         k=k+1;
     end
 i=i+1;
